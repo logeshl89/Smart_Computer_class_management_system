@@ -1,0 +1,13 @@
+.SideButton
+{
+    -fx-background-color:#000000;
+}
+.SideButton:hover
+{
+-fx-background-color:  #3D59AB;
+}
+.SideButton:focused {
+-fx-background-color:  #3D59AB;
+-fx-border-radius:10;
+-fx-background-radius:10;
+}

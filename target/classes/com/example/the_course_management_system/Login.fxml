@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="652.0" prefWidth="915.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-background-size: 20;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.the_course_management_system.Login">
+   <children>
+      <AnchorPane layoutX="386.0" layoutY="110.0" prefHeight="652.0" prefWidth="447.0" style="-fx-background-color: #3399FF; -fx-background-radius: 0 20 20 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="CloseButton" fitHeight="34.0" fitWidth="30.0" layoutX="402.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/close.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="210.0" layoutY="106.0" prefHeight="34.0" prefWidth="73.0" text="Login" textFill="#030000">
+               <font>
+                  <Font name="Times New Roman" size="28.0" />
+               </font>
+            </Label>
+            <TextField fx:id="UsernameTextField" layoutX="155.0" layoutY="261.0" prefHeight="38.0" prefWidth="200.0" promptText="Username" style="-fx-background-radius: 20;">
+               <font>
+                  <Font name="Calibri Light" size="17.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="UserpasswordTextField" layoutX="153.0" layoutY="331.0" prefHeight="38.0" prefWidth="200.0" promptText="Password" style="-fx-background-radius: 20;">
+               <font>
+                  <Font name="Calibri Light" size="17.0" />
+               </font>
+            </PasswordField>
+            <Button layoutX="198.0" layoutY="451.0" mnemonicParsing="false" onAction="#Validation" prefHeight="38.0" prefWidth="115.0" style="-fx-background-radius: 10; -fx-background-color: #132BD7;" styleClass="buttonColorChangeToRed" text="Login" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Light" size="23.0" />
+               </font>
+            </Button>
+            <Label layoutX="92.0" layoutY="178.0" text="Welcome to your account" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Times New Roman Bold" size="30.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="36.0" fitWidth="41.0" layoutX="101.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/icons8-collaborator-male-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="41.0" layoutX="101.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/lock.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="124.0" layoutY="588.0" prefHeight="36.0" prefWidth="307.0" text="Have a Great day" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Times New Roman" size="19.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="MinimizeButton" fitHeight="34.0" fitWidth="30.0" layoutX="372.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/minus.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="25.0" layoutY="14.0" text="GURUKULAM" textFill="#ee0a0a">
+         <font>
+            <Font name="Times New Roman" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="154.0" layoutY="14.0" text="COMPUTERS" textFill="#3399ff">
+         <font>
+            <Font name="Times New Roman" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="154.0" layoutY="109.0" text="Welcome to" textFill="#ff3c33" wrapText="true">
+         <font>
+            <Font name="Times New Roman" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="169.0" prefHeight="99.0" prefWidth="375.0" text="Course Management System" textAlignment="CENTER" textFill="#3399ff" wrapText="true">
+         <font>
+            <Font name="Times New Roman" size="35.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="291.0" fitWidth="349.0" layoutX="36.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Login_Image.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="64.0" layoutY="608.0" text="Developed by:" textFill="#2c2929">
+         <font>
+            <Font name="MV Boli" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="184.0" layoutY="608.0" text="Logesh.M">
+         <font>
+            <Font name="Comic Sans MS Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

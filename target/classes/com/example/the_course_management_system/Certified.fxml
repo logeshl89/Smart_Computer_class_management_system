@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="585.0" prefWidth="892.0" style="-fx-background-color: #3D59AB;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.the_course_management_system.Certified">
+   <children>
+      <TableView fx:id="Certification_Table" layoutX="98.0" layoutY="93.0" prefHeight="402.0" prefWidth="597.0">
+        <columns>
+          <TableColumn fx:id="Certification_ID" prefWidth="55.0" text="ID" />
+          <TableColumn fx:id="Certification_Name" prefWidth="107.0" text="NAME" />
+            <TableColumn fx:id="Certification_Date" prefWidth="109.0" text="DATE" />
+            <TableColumn fx:id="Certification_Course" prefWidth="109.0" text="COURSE" />
+            <TableColumn fx:id="Certification_grade" prefWidth="109.0" text="GRADE" />
+            <TableColumn fx:id="Certification_Gender" prefWidth="109.0" text="GENDER" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

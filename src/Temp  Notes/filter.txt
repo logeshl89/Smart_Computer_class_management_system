@@ -1,0 +1,16 @@
+  @FXML
+    private TableView<AllTheUserTOTheTable> All_Students_Table;
+    @FXML
+    private ComboBox<String> Genders;
+    @FXML
+    private TableColumn<AllTheUserTOTheTable, String> All_Students_Table_CoursePrice;
+    @FXML
+    private ComboBox<String> filterCourers;
+    @FXML
+    private TableColumn<AllTheUserTOTheTable, String> All_Students_Table_Gender;
+    while (resultSet.next()) {
+                    filterCourers.getItems().add(resultSet.getString("courses_to_show"));
+                }
+                Table();
+                        Genders.getItems().addAll("Male","Female","others");
+                        All_Students_Table.setVisible(false);

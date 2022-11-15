@@ -1,0 +1,7 @@
+.root{
+-fx-background-image:url("Computer_Education.png");
+}
+.buttonColorChangeToRed:hover
+{
+-fx-background-color:#ff3c33;
+}

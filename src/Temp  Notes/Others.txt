@@ -1,0 +1,11 @@
+        try {
+            connection = DriverManager.getConnection(url_Mysql, Password_name, Password_name);
+            String Coursess_to_show = "select courses_to_show from courses;";
+            Statement statement;
+            ResultSet resultSet;
+            connection = DriverManager.getConnection(url_Mysql, "root", "root");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(Coursess_to_show);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }

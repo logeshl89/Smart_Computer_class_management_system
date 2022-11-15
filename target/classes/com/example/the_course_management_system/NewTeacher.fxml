@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="892.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.the_course_management_system.NewTeacher">
+   <children>
+      <AnchorPane layoutY="-3.0" prefHeight="585.0" prefWidth="892.0" style="-fx-background-color: #3D59AB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="99.0" layoutY="12.0" prefHeight="63.0" prefWidth="248.0" text="Welcome You Teacher to our Community" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Arial Narrow Bold" size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="NameOfTheTeacher" layoutX="114.0" layoutY="130.0" prefHeight="37.0" prefWidth="248.0" promptText="Enter the Name" style="-fx-background-radius: 20;">
+               <font>
+                  <Font name="Arial Nova Bold" size="17.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="PhoneNumberOfTheTeacher" layoutX="113.0" layoutY="194.0" prefHeight="37.0" prefWidth="248.0" promptText="Phone Number" style="-fx-background-radius: 20;">
+               <font>
+                  <Font name="Arial Nova Bold" size="17.0" />
+               </font>
+            </TextField>
+            <ComboBox fx:id="Genders" layoutX="115.0" layoutY="258.0" prefHeight="37.0" prefWidth="248.0" promptText="Gender" style="-fx-background-radius: 20;" visibleRowCount="7" />
+            <TextField fx:id="UserNameOfTheTeacher" layoutX="113.0" layoutY="319.0" prefHeight="37.0" prefWidth="248.0" promptText="Username" style="-fx-background-radius: 20;">
+               <font>
+                  <Font name="Arial Nova Bold" size="17.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="PasswordOftheTeacher" layoutX="110.0" layoutY="422.0" prefHeight="37.0" prefWidth="248.0" promptText="Password" style="-fx-background-radius: 20;">
+               <font>
+                  <Font name="Arial Nova Bold" size="17.0" />
+               </font>
+            </TextField>
+            <Button fx:id="CreateTheButton" layoutX="63.0" layoutY="543.0" mnemonicParsing="false" onAction="#EventHandler" style="-fx-background-color: #FF3C33;" text="Create" textFill="WHITE">
+               <font>
+                  <Font name="Bell MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="DeleteButton" layoutX="169.0" layoutY="543.0" mnemonicParsing="false" onAction="#EventHandler" style="-fx-background-color: #FF3C33;" text="delete" textFill="WHITE">
+               <font>
+                  <Font name="Bell MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="UpdfateButton" layoutX="270.0" layoutY="543.0" mnemonicParsing="false" onAction="#EventHandler" style="-fx-background-color: #FF3C33;" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="Bell MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="55.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="55.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/price_tag_icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="55.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Male_Big.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="55.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/icons8-collaborator-male-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="55.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/lock.png" />
+               </image>
+            </ImageView>
+            <ComboBox fx:id="Sepacilization" layoutX="115.0" layoutY="368.0" onAction="#EventHandler" prefHeight="37.0" prefWidth="248.0" promptText="Specilization" style="-fx-background-radius: 20;" visibleRowCount="7" />
+            <TextField fx:id="IdNumber" layoutX="110.0" layoutY="470.0" prefHeight="37.0" prefWidth="248.0" promptText="Enter the id number" style="-fx-background-radius: 20;">
+               <font>
+                  <Font name="Arial Nova Bold" size="17.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="508.0" fitWidth="404.0" layoutX="456.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Main.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="569.0" layoutY="22.0" prefHeight="63.0" prefWidth="248.0" text="Teachers Management System" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Arial Narrow Bold" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="55.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/email.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

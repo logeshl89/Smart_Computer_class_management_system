@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1114.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.the_course_management_system.DashBoard">
+   <children>
+      <BorderPane layoutX="305.0" layoutY="119.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="113.0" prefWidth="952.0" style="-fx-background-color: #3399FF;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="CloseButton" fitHeight="24.0" fitWidth="27.0" layoutX="1072.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/close.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="UsernameUpload" layoutX="445.0" layoutY="77.0" prefHeight="31.0" prefWidth="240.0" text="Welcome , back" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.topAnchor="77.0">
+                     <font>
+                        <Font name="Arial Unicode MS" size="17.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="29.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/icons8-collaborator-male-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label layoutX="359.0" layoutY="30.0" text="GURUKULAM" textFill="#0a0303">
+                     <font>
+                        <Font name="Century" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="591.0" layoutY="30.0" text="COMPUTERS" textFill="#080202">
+                     <font>
+                        <Font name="Century" size="30.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="NewUserButton" layoutX="9.0" layoutY="62.0" mnemonicParsing="false" onAction="#NewSceneChanger" prefHeight="47.0" prefWidth="155.0" style="-fx-background-color: RED; -fx-background-radius: 10;" text="New User" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Unicode MS" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/icons8-add-new-50.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="UpdateButton" layoutX="949.0" layoutY="62.0" mnemonicParsing="false" onAction="#NewSceneChanger" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: RED; -fx-background-radius: 10;" text="Update" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Unicode MS" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="56.0" onDragDetected="#NewSceneChanger" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/Update_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <ImageView fx:id="MinimizeButton" fitHeight="24.0" fitWidth="27.0" layoutX="1048.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/minus.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <VBox prefHeight="581.0" prefWidth="207.0" style="-fx-background-color: #3D59AB;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="ClickTheNewCourse" mnemonicParsing="false" onAction="#ChangingTheScene" prefHeight="53.0" prefWidth="213.0" styleClass="SideButton" stylesheets="@CSS/dashBoardSideBar.css" text="New Course" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Unicode MS" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/icons8-add-new-50.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="AboutTheProject" mnemonicParsing="false" onAction="#ChangingTheScene" prefHeight="53.0" prefWidth="221.0" styleClass="SideButton" stylesheets="@CSS/dashBoardSideBar.css" text="About project" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Unicode MS" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/abiut us.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="CertifiedButton" graphicTextGap="10.0" mnemonicParsing="false" onAction="#ChangingTheScene" prefHeight="53.0" prefWidth="230.0" styleClass="SideButton" stylesheets="@CSS/dashBoardSideBar.css" text="Certified" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Unicode MS" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/icons8-collaborator-male-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="OverAllViewButton" mnemonicParsing="false" onAction="#ChangingTheScene" prefHeight="53.0" prefWidth="222.0" styleClass="SideButton" stylesheets="@CSS/dashBoardSideBar.css" text="OverView" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Unicode MS" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/abiut us.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="OnPressAllTheUsers" mnemonicParsing="false" onAction="#ChangingTheScene" prefHeight="53.0" prefWidth="219.0" styleClass="SideButton" stylesheets="@CSS/dashBoardSideBar.css" text="All User" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Unicode MS" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="NewTeacherUserButton" mnemonicParsing="false" onAction="#ChangingTheScene" prefHeight="53.0" prefWidth="223.0" styleClass="SideButton" stylesheets="@CSS/dashBoardSideBar.css" text="New Teacher" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Unicode MS" size="19.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/Teacher.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="NewCertification" mnemonicParsing="false" onAction="#ChangingTheScene" prefHeight="53.0" prefWidth="225.0" styleClass="SideButton" stylesheets="@CSS/dashBoardSideBar.css" text="New Certification" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Unicode MS" size="19.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/Teacher.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#LogOut" prefHeight="53.0" prefWidth="220.0" style="-fx-background-color: RED;" text="Log out" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Arial Unicode MS" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/LogOut.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <StackPane fx:id="backgroundPane" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #3D59AB;" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
