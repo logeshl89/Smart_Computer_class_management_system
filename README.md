@@ -3,6 +3,6 @@
   Imagin a small computer class with 100 students there is only one sir and mam runing the computer class.
   Sometimes they will forgot to update the fees given buy the students.
   For the above problem i have developed a small software with the following things.
-  Frontend : Javafx
+  Frontend : Javafx,Css
   Backend  : Java
   DataBae  : Mysql
