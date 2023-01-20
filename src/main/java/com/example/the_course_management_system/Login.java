@@ -10,7 +10,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -21,9 +20,6 @@ import java.util.ResourceBundle;
 
 public class Login implements Initializable {
     String select_Q="select Username,password_teacher from Teachers where Username=? and password_Teacher=?;";
-    private static final String Password_name = "root";
-    String url_Mysql = new String("jdbc:mysql://localhost:3306/Tution_Management_System");
-    Connection connection;
     PreparedStatement preparedStatement;
     @FXML
     private ImageView CloseButton;
@@ -90,8 +86,7 @@ public class Login implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            connection =DriverManager.getConnection(url_Mysql,Password_name,Password_name);
-            preparedStatement=connection.prepareStatement(select_Q);
+            preparedStatement=Connector.connection().prepareStatement(select_Q);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

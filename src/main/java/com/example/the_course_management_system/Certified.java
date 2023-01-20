@@ -19,8 +19,6 @@ public class Certified implements Initializable {
     public TableColumn<Certified_Student, String> Certification_Gender;
     @FXML
     public TableColumn<Certified_Student, String> Certification_grade;
-    String url_Mysql = new String("jdbc:mysql://localhost:3306/Tution_Management_System");
-    Connection connection;
     PreparedStatement preparedStatement;
     @FXML
     private TableColumn<Certified_Student, String> Certification_Date;
@@ -55,8 +53,7 @@ public class Certified implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            connection= DriverManager.getConnection(url_Mysql,Password_name,Password_name);
-            Statement statement=connection.createStatement();
+            Statement statement=Connector.connection().createStatement();
             ResultSet resultSet = statement.executeQuery("select * from Certified;");
             Table(resultSet);
         } catch (SQLException e) {

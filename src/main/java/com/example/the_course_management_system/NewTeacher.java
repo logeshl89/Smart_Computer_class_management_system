@@ -49,16 +49,13 @@ public class NewTeacher implements Initializable {
     Stage stage;
     Scene scene;
     PreparedStatement preparedStatement;
-    Connection connection;
-    private static final String Password_name = "root";
-    String url_Mysql = new String("jdbc:mysql://localhost:3306/Tution_Management_System");
     Alert alert;
     @FXML
     void EventHandler(ActionEvent event) throws IOException, SQLException {
         String Qure;
         if (event.getSource()==DeleteButton) {
             Qure="delete from teachers where username=?;";
-            preparedStatement= connection.prepareStatement(Qure);
+            preparedStatement= Connector.connection().prepareStatement(Qure);
             preparedStatement.setString(1,UserNameOfTheTeacher.getText());
             int i = preparedStatement.executeUpdate();
             alert=new Alert(Alert.AlertType.INFORMATION);
@@ -69,7 +66,7 @@ public class NewTeacher implements Initializable {
             } else if (event.getSource()==UpdfateButton) {
                 Qure="update Teachers set Teacher_Name=?,phone_Number=?,Teacher_Gender=?,username=?,password_teacher=?,Specification=? where id=?;";
 
-                preparedStatement= connection.prepareStatement(Qure);
+                preparedStatement= Connector.connection().prepareStatement(Qure);
                 preparedStatement.setString(1, NameOfTheTeacher.getText());
                 preparedStatement.setString(2, PhoneNumberOfTheTeacher.getText());
                 preparedStatement.setString(3, Genders.getValue());
@@ -85,7 +82,7 @@ public class NewTeacher implements Initializable {
 
             } else if (event.getSource()==CreateTheButton) {
             Qure="insert into teachers(teacher_name,phone_number,teacher_gender,username,password_teacher,specification) values(?,?,?,?,?,?,?);";
-            preparedStatement= connection.prepareStatement(Qure);
+            preparedStatement= Connector.connection().prepareStatement(Qure);
             preparedStatement.setString(1, NameOfTheTeacher.getText());
             preparedStatement.setString(2, PhoneNumberOfTheTeacher.getText());
             preparedStatement.setString(3, Genders.getValue());
@@ -104,10 +101,9 @@ public class NewTeacher implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            connection = DriverManager.getConnection(url_Mysql, Password_name, Password_name);
             Genders.getItems().addAll("Male", "Female", "Others");
             String Coursess_to_show = "select courses_to_show from courses;";
-            Statement statement=connection.createStatement();
+            Statement statement=Connector.connection().createStatement();
             ResultSet resultSet = statement.executeQuery(Coursess_to_show);
             while(resultSet.next())
             {

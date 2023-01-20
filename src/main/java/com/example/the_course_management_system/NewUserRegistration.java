@@ -20,8 +20,7 @@ import java.util.ResourceBundle;
 
 public class NewUserRegistration implements Initializable {
     String select_Q = "insert into Course_User(father_name,user_name,phone_number,Course_Prise,initial_payment,Gender,Courses) values(?,?,?,?,?,?,?);";
-    private static final String Password_name = "root";
-    String url_Mysql = new String("jdbc:mysql://localhost:3306/Tution_Management_System");
+
     Connection connection;
     PreparedStatement preparedStatement;
     @FXML
@@ -58,7 +57,7 @@ public class NewUserRegistration implements Initializable {
     @FXML
     protected  void Validator(ActionEvent we) throws SQLException {
         if(UserPhoneNumber.getText().length()==10 && !Objects.equals(UseranmeTextField.getText(), "") && !Objects.equals(UserFatherName.getText(), "")) {
-            preparedStatement = connection.prepareStatement(select_Q);
+            preparedStatement = Connector.connection().prepareStatement(select_Q);
             preparedStatement.setString(1, UserFatherName.getText());
             preparedStatement.setString(2, UseranmeTextField.getText());
             preparedStatement.setString(3, UserPhoneNumber.getText());
@@ -84,10 +83,9 @@ public class NewUserRegistration implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Genders.getItems().addAll("Male", "Female", "Others");
         try {
-            connection = DriverManager.getConnection(url_Mysql, Password_name, Password_name);
-            preparedStatement = connection.prepareStatement(select_Q);
+            preparedStatement = Connector.connection().prepareStatement(select_Q);
             String Courses_to_show = "select courses_to_show from courses;";
-            Statement statement=connection.createStatement();
+            Statement statement=Connector.connection().createStatement();
             ResultSet resultSet = statement.executeQuery(Courses_to_show);
             while(resultSet.next())
             {

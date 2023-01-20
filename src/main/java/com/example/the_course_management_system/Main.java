@@ -5,7 +5,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -36,7 +35,6 @@ public class Main extends Application {
                 stage.setY(event.getScreenY() - yOffset);
             }
         });
-        stage.getIcons().add(new Image("D:\\The_Course_Management_System\\src\\main\\resources\\com\\example\\the_course_management_system\\Images\\istockphoto-1213217234-1024x1024.jpg"));
         scene.setFill(Color.TRANSPARENT);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);

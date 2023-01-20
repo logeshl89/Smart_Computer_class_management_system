@@ -26,10 +26,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class DashBoard implements Initializable {
-    private static final String Password_name = "root";
-    String url_Mysql = new String("jdbc:mysql://localhost:3306/Tution_Management_System");
     PreparedStatement preparedStatement;
-    Connection connection;
     @FXML
     private StackPane backgroundPane;
     Alert alert;

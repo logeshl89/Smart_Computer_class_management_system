@@ -1,7 +1,6 @@
 package com.example.the_course_management_system;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 
@@ -23,9 +21,6 @@ import java.util.ResourceBundle;
 
 public class UserUpdateSection implements Initializable {
     PreparedStatement preparedStatement;
-    Connection connection;
-    private static final String Password_name = "root";
-    String url_Mysql = new String("jdbc:mysql://localhost:3306/Tution_Management_System");
     @FXML
     private Button Back_To_Home;
     @FXML
@@ -82,7 +77,7 @@ public class UserUpdateSection implements Initializable {
         if(event.getSource()==deleteTheUser)
         {
             Qure="delete from course_user where id=?;";
-            preparedStatement= connection.prepareStatement(Qure);
+            preparedStatement= Connector.connection().prepareStatement(Qure);
             preparedStatement.setInt(1,Integer.parseInt(UseranmeTextFieldid.getText()));
             int i = preparedStatement.executeUpdate();
             //  statusImage.setImage(Tick);
@@ -93,7 +88,7 @@ public class UserUpdateSection implements Initializable {
             alert.showAndWait();
         } else if (event.getSource()==UpdateTheUser) {
             Qure="update course_user set Father_name=?,user_name=?,phone_number=?,Course_Prise=?,initial_payment=?,Gender=?,Courses=? where id=?;";
-            preparedStatement= connection.prepareStatement(Qure);
+            preparedStatement= Connector.connection().prepareStatement(Qure);
             preparedStatement.setString(1, UserFatherName.getText());
             preparedStatement.setString(2, UseranmeTextField1.getText());
             preparedStatement.setString(3, UserPhoneNumber.getText());
@@ -111,7 +106,7 @@ public class UserUpdateSection implements Initializable {
 
         } else if (event.getSource()==SearchButton) {
             Qure="select * from Course_User where id=?;";
-            preparedStatement= connection.prepareStatement(Qure);
+            preparedStatement= Connector.connection().prepareStatement(Qure);
             preparedStatement.setInt(1,Integer.parseInt(UseranmeTextFieldid.getText()));
             ResultSet resultSet=preparedStatement.executeQuery();
             if(resultSet.next()) {
@@ -139,9 +134,8 @@ public class UserUpdateSection implements Initializable {
             ((Stage)((ImageView)e.getSource()).getScene().getWindow()).setIconified(true);
         });
         try {
-            connection = DriverManager.getConnection(url_Mysql, Password_name, Password_name);
             String Courses_to_show = "select courses_to_show from courses;";
-            Statement statement=connection.createStatement();
+            Statement statement=Connector.connection().createStatement();
             ResultSet resultSet = statement.executeQuery(Courses_to_show);
             while(resultSet.next())
             {

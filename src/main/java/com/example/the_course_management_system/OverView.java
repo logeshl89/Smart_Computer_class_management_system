@@ -33,7 +33,6 @@ public class OverView implements Initializable {
     @FXML
     private Label FemaleCount;
 
-    Connection connection;
     private static final String Password_name = "root";
     String url_Mysql = new String("jdbc:mysql://localhost:3306/Tution_Management_System");
     Alert alert;
@@ -48,8 +47,7 @@ public class OverView implements Initializable {
         Genders.setData(Gender);
         ResultSet genderResultSet;
         try {
-            connection=DriverManager.getConnection(url_Mysql,Password_name,Password_name);
-            statement=connection.createStatement();
+            statement=Connector.connection().createStatement();
             ResultSet resultSet=statement.executeQuery("select courses,count(id) from course_user group by courses;");
             while(resultSet.next())
             {
@@ -62,14 +60,14 @@ public class OverView implements Initializable {
             CourseAddedTable.setItems(CourseAndCountOfStudents);
             CoursesAdder.setCellValueFactory(e->e.getValue().courseProperty());
             NumberofStudents.setCellValueFactory(e->e.getValue().studenstsCountProperty());
-            statement=connection.createStatement();
+            statement=Connector.connection().createStatement();
             genderResultSet=statement.executeQuery("select count(id) from course_user where gender=\"male\";");
             genderResultSet.next();
             String male = String.valueOf(genderResultSet.getString(1));
             System.out.println(male);
             Gender.add(new PieChart.Data("Male",Integer.parseInt(male)));
             MaleCount.setText(male);
-            statement=connection.createStatement();
+            statement=Connector.connection().createStatement();
             genderResultSet=statement.executeQuery("select count(id) from course_user where gender=\"female\";");
             genderResultSet.next();
             String Female = String.valueOf(genderResultSet.getString(1));

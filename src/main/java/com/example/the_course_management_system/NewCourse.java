@@ -15,7 +15,6 @@ import java.util.ResourceBundle;
 
 public class NewCourse implements Initializable {
 
-    Connection connection;
     PreparedStatement preparedStatement;
     private static final String Password_name = "root";
     String url_Mysql = new String("jdbc:mysql://localhost:3306/Tution_Management_System");
@@ -49,7 +48,7 @@ public class NewCourse implements Initializable {
         if(event.getSource()==CreateButton)
         {
 
-            preparedStatement= connection.prepareStatement("insert  into courses(COURSES_TO_SHOW) values(?);");
+            preparedStatement= Connector.connection().prepareStatement("insert  into courses(COURSES_TO_SHOW) values(?);");
             preparedStatement.setString(1,New_Course.getText());
             preparedStatement.executeUpdate();
             alert=new Alert(Alert.AlertType.INFORMATION);
@@ -61,7 +60,7 @@ public class NewCourse implements Initializable {
         }
         else if(event.getSource()==UpdateButton)
         {
-            preparedStatement =connection.prepareStatement("update courses SET COURSES_TO_SHOW=? WHERE COURSES_TO_SHOW=?;");
+            preparedStatement =Connector.connection().prepareStatement("update courses SET COURSES_TO_SHOW=? WHERE COURSES_TO_SHOW=?;");
             if(New_Course_Name.getText() == null) {
              alert=new Alert(Alert.AlertType.WARNING);
              alert.setTitle("Error");
@@ -77,7 +76,7 @@ public class NewCourse implements Initializable {
                 alert.setContentText("Successfully Updated");alert.showAndWait();
             }
             } else if ( event.getSource()==DeleteButton) {
-            preparedStatement= connection.prepareStatement("delete from courses where courses_to_show=?;");
+            preparedStatement= Connector.connection().prepareStatement("delete from courses where courses_to_show=?;");
             preparedStatement.setString(1,CoursesListVIew.getSelectionModel().getSelectedItem());
             preparedStatement.executeUpdate();
             Display_Course();
@@ -89,7 +88,7 @@ public class NewCourse implements Initializable {
     }
     void  Display_Course() throws SQLException {
         String Courses_to_show = "select courses_to_show from courses;";
-        Statement statement=connection.createStatement();
+        Statement statement=Connector.connection().createStatement();
         resultSet = statement.executeQuery(Courses_to_show);
         while(resultSet.next())
         {
@@ -100,7 +99,6 @@ public class NewCourse implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            connection = DriverManager.getConnection(url_Mysql, Password_name, Password_name);
             Display_Course();
         } catch (SQLException e) {
             throw new RuntimeException(e);

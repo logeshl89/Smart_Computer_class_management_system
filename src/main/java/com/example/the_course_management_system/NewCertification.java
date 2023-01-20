@@ -13,7 +13,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class NewCertification implements Initializable {
-    Connection connection;
     PreparedStatement preparedStatement;
 
     Alert alert;
@@ -51,7 +50,7 @@ public class NewCertification implements Initializable {
     void Validator(ActionEvent event) throws SQLException {
         if (event.getSource() == SearchButton) {
             String Qure = "select * from Course_User where id=?;";
-            preparedStatement = connection.prepareStatement(Qure);
+            preparedStatement = Connector.connection().prepareStatement(Qure);
             preparedStatement.setInt(1, Integer.parseInt(UsernameTextFieldid.getText()));
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -75,7 +74,7 @@ public class NewCertification implements Initializable {
             Optional<ButtonType> po = alert.showAndWait();
             if (po.get() == ButtonType.OK) {
                 if (Objects.equals(CoursePrice.getText(), InitialPaymentOfUser.getText())) {
-                    preparedStatement = connection.prepareStatement("insert into certified(id,username,exam_date,gender,courses,grade) values(?,?,?,?,?,?);");
+                    preparedStatement = Connector.connection().prepareStatement("insert into certified(id,username,exam_date,gender,courses,grade) values(?,?,?,?,?,?);");
                     preparedStatement.setString(1, UsernameTextFieldid.getText());
                     preparedStatement.setString(2, UsernameTextField.getText());
                     preparedStatement.setString(3, String.valueOf(DateOfExam.getValue()));
@@ -83,7 +82,7 @@ public class NewCertification implements Initializable {
                     preparedStatement.setString(5, Courses.getText());
                     preparedStatement.setString(6, GradeComboBox.getValue());
                     preparedStatement.executeUpdate();
-                    preparedStatement = connection.prepareStatement("delete from course_user where id=?;");
+                    preparedStatement = Connector.connection().prepareStatement("delete from course_user where id=?;");
                     preparedStatement.setString(1, UsernameTextFieldid.getText());
                     preparedStatement.executeUpdate();
 
@@ -113,11 +112,6 @@ public class NewCertification implements Initializable {
         Courses.setEditable(false);
         CoursePrice.setEditable(false);
         InitialPaymentOfUser.setEditable(false);
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Tution_Management_System", "root", "root");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
         GradeComboBox.getItems().addAll("O", "A", "A+", "B", "B+", "C");
     }
 

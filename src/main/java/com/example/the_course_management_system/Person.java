@@ -22,10 +22,8 @@ public class Person implements Initializable {
     private TableColumn<AllTheUserTOTheTable, String> All_Students_Table_Username;
     @FXML
     private Button filterButton;
-    private static final String Password_name = "root";
     @FXML
     private ComboBox<String> Gender,Courses;
-    String url_Mysql = new String("jdbc:mysql://localhost:3306/Tution_Management_System");
     @FXML
     private TableColumn<AllTheUserTOTheTable, String> All_Students_Table_id;
     PreparedStatement preparedStatement;
@@ -37,7 +35,7 @@ public class Person implements Initializable {
     private TableColumn<AllTheUserTOTheTable, String> All_Students_Table_Course;
     @FXML
     private TableColumn<AllTheUserTOTheTable, String> All_Students_Table_Gender;
-    Connection connection;
+
     @FXML
     private TableColumn<AllTheUserTOTheTable, String> All_Students_Table_paid;
     @FXML
@@ -74,13 +72,13 @@ public class Person implements Initializable {
     @FXML
     protected void OnClickFilter() throws Exception {
         if(Gender.getValue()==null) {
-            preparedStatement = connection.prepareStatement("select * from course_user where courses=?;");
+            preparedStatement = Connector.connection().prepareStatement("select * from course_user where courses=?;");
             preparedStatement.setString(1, Courses.getValue());
             ResultSet resultSet1 = preparedStatement.executeQuery();
             Table(resultSet1);
             System.out.println("Course selected");
         } else if (Courses.getValue()==null) {
-            preparedStatement=connection.prepareStatement("select * from course_user where gender=?;");
+            preparedStatement=Connector.connection().prepareStatement("select * from course_user where gender=?;");
             preparedStatement.setString(1,Gender.getValue());
             ResultSet resultSet1 = preparedStatement.executeQuery();
             Table(resultSet1);
@@ -88,7 +86,7 @@ public class Person implements Initializable {
         }
         else
         {
-            preparedStatement=connection.prepareStatement("select * from course_user where gender=? and courses=?;");
+            preparedStatement=Connector.connection().prepareStatement("select * from course_user where gender=? and courses=?;");
             preparedStatement.setString(1,Gender.getValue());
             preparedStatement.setString(2,Courses.getValue());
             ResultSet resultSet1 = preparedStatement.executeQuery();
@@ -101,10 +99,9 @@ public class Person implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            connection = DriverManager.getConnection(url_Mysql, Password_name, Password_name);
             Reloads();
             Gender.getItems().addAll("Male","Female");
-            statement= connection.createStatement();
+            statement= Connector.connection().createStatement();
             ResultSet resultSet1 = statement.executeQuery("select * from course_user;");
             Table(resultSet1);
         } catch (Exception e) {
@@ -114,7 +111,7 @@ public class Person implements Initializable {
     @FXML
     private void  Reloads() throws SQLException {
         String Courses_to_show = "select courses_to_show from courses;";
-        statement=connection.createStatement();
+        statement=Connector.connection().createStatement();
         resultSet = statement.executeQuery(Courses_to_show);
         while(resultSet.next())
         {
@@ -123,7 +120,7 @@ public class Person implements Initializable {
     }
     @FXML
     private  void All_user() throws Exception {
-        statement= connection.createStatement();
+        statement= Connector.connection().createStatement();
         ResultSet resultSet1 = statement.executeQuery("select * from course_user;");
         Table(resultSet1);
         Courses.setValue(null);
